@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, Image, TextInput, ToastAndroid, TouchableOpacity } from "react-native";
 import styles from "./StylesLogin";
+import { useNavigation } from "@react-navigation/native";
 
 export function LoginScreen  ()  {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
         
@@ -35,7 +37,14 @@ export function LoginScreen  ()  {
                     <Text style={styles.buttonFormTitle}>Entrar</Text>
                   </TouchableOpacity>
                 </View>
-              
+
+                <View style={{marginTop: 30}}>
+                  <TouchableOpacity
+                    onPress={() => {navigation.navigate('RegistroScreen')}}>
+                    <Text>Registrarme</Text>
+                  </TouchableOpacity>
+                </View>
+
               </View>
         
             </View>  
