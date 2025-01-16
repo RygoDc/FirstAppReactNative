@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Text, TextInput, ToastAndroid, TouchableOpacity } from "react-native";
 import styles from "./StylesLogin";
+import { RoundedButton } from "../../components/RoundedButton";
+import App from "../../../../App";
+import { FormInputInlineWithIcon } from "../../components/FormInputInlineWithIcon";
 
 function RegistroScreen  ()  {
     return (
@@ -8,39 +11,59 @@ function RegistroScreen  ()  {
             <Text style={styles.title}>Registro</Text>
 
             <View style={styles.formContainer}>
-            <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Usuario</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}}/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Nombre</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}}/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Apellido</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}}/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Correo</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}} keyboardType='email-address'/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Teléfono</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}} keyboardType='phone-pad'/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Contraseña</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}} secureTextEntry={true}/>
-                </View>                
+            <FormInputInlineWithIcon
+                    image={require("../../../../assets/user.png")}
+                    placeholder={"Nombre"}
+                    keyboardType="default"
+                    secureTextEntry={false}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>
 
-                <View style={styles.formInputConteiner, {marginTop: 20}}>
-                    <TouchableOpacity style={styles.buttonForm}
-                        onPress={() => {ToastAndroid.show('Presionado', ToastAndroid.SHORT)}}>
-                        <Text style={styles.buttonFormTitle}>Enviar</Text>
-                    </TouchableOpacity>
-                    </View>
-                </View>
+                <FormInputInlineWithIcon
+                    image={require("../../../../assets/my_user.png")}
+                    placeholder={"Apellidos"}
+                    keyboardType="default"
+                    secureTextEntry={false}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>
 
+                <FormInputInlineWithIcon
+                    image={require("../../../../assets/email.png")}
+                    placeholder={"Correo electrónico"}
+                    keyboardType="email-address"
+                    secureTextEntry={false}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>
+
+                <FormInputInlineWithIcon
+                    image={require("../../../../assets/phone.png")}
+                    placeholder={"Teléfono"}
+                    keyboardType="numeric"
+                    secureTextEntry={false}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>
+
+                <FormInputInlineWithIcon
+                    image={require("../../../../assets/password.png")}
+                    placeholder={"Contraseña"}
+                    keyboardType="default"
+                    secureTextEntry={true}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>
+
+                <FormInputInlineWithIcon
+                    image={require("../../../../assets/confirm_password.png")}
+                    placeholder={"Repetir contraseña"}
+                    keyboardType="default"
+                    secureTextEntry={true}
+                    onPressFormInterface={() => {alert('')}}
+                ></FormInputInlineWithIcon>               
+
+                <View style={{marginTop: 20}}>
+                    <RoundedButton text={'Registrar'} onPressFromInterface={() => {alert('Registro exitoso')}}/>
+                    
+                </View>
+            </View>
         </View>
     );
 }

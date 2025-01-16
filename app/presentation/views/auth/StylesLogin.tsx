@@ -38,32 +38,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       marginBottom: 10,
       borderBottomWidth: 1,
-      borderBottomColor: 'black',
       paddingBottom: 9,
       color: AppColors.secondary,
       borderBottomColor: AppColors.secondary,
     },
-    formInputConteiner: {
-      marginBottom: 20,
-    },
-    formInput: {
-      borderColor: 'black',
-      borderWidth: 1,
-      borderRadius: 10,
-      padding: 10,
-    },
-    buttonForm:{
-      backgroundColor: AppColors.primary,
-      paddingVertical: 10,
-      borderRadius: 10,
-      paddingHorizontal: 20,
-    },
-    buttonFormTitle: {
-      color: 'white',
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 16,
-    }
+    
+    
   });
 
   export default styles;
