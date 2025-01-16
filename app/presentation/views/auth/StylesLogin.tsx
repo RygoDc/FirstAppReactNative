@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { AppColors } from "../../theme/AppTheme";
 
 const styles = StyleSheet.create({
     container: {
@@ -32,13 +33,15 @@ const styles = StyleSheet.create({
   
     },
     formTitle: {
+      
       fontSize: 18,
       fontWeight: 'bold',
       marginBottom: 10,
       borderBottomWidth: 1,
       borderBottomColor: 'black',
       paddingBottom: 9,
-      color: 'black',
+      color: AppColors.secondary,
+      borderBottomColor: AppColors.secondary,
     },
     formInputConteiner: {
       marginBottom: 20,
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
       padding: 10,
     },
     buttonForm:{
-      backgroundColor: 'black',
+      backgroundColor: AppColors.primary,
       paddingVertical: 10,
       borderRadius: 10,
       paddingHorizontal: 20,

@@ -8,6 +8,10 @@ function RegistroScreen  ()  {
             <Text style={styles.title}>Registro</Text>
 
             <View style={styles.formContainer}>
+            <View style={{marginTop: 20}}>
+                    <Text style={{fontWeight: 'bold'}}>Usuario</Text>
+                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}}/>
+                </View>
                 <View style={{marginTop: 20}}>
                     <Text style={{fontWeight: 'bold'}}>Nombre</Text>
                     <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}}/>
@@ -27,11 +31,7 @@ function RegistroScreen  ()  {
                 <View style={{marginTop: 20}}>
                     <Text style={{fontWeight: 'bold'}}>Contraseña</Text>
                     <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}} secureTextEntry={true}/>
-                </View>
-                <View style={{marginTop: 20}}>
-                    <Text style={{fontWeight: 'bold'}}>Repetir Contraseña</Text>
-                    <TextInput style={{borderWidth: 1, borderColor: 'black', borderRadius: 10, padding: 10}} secureTextEntry={true}/>
-                </View>
+                </View>                
 
                 <View style={styles.formInputConteiner, {marginTop: 20}}>
                     <TouchableOpacity style={styles.buttonForm}
