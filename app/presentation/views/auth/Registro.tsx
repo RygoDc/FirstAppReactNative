@@ -1,22 +1,32 @@
-import React from "react";
-import { View, Text, TextInput, ToastAndroid, TouchableOpacity } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text, Image,TextInput, ToastAndroid, TouchableOpacity, StyleSheet } from "react-native";
 import styles from "./StylesLogin";
 import { RoundedButton } from "../../components/RoundedButton";
-import App from "../../../../App";
 import { FormInputInlineWithIcon } from "../../components/FormInputInlineWithIcon";
+import ViewModel from "./ViewModel";
 
 function RegistroScreen  ()  {
+    const {firstName, lastName, email, phone, password, confirmPassword, onChangeRegister, register, errorMessage} = ViewModel.RegistroViewModel();
+    useEffect(() => {
+          if(errorMessage !== ''){
+            ToastAndroid.show(errorMessage, ToastAndroid.LONG)
+          }
+          }, [errorMessage])
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Registro</Text>
+            <View style={stylesRegistro.imageContainer}>
+                <Image style={stylesRegistro.image} source={require('../../../../assets/logo.png')}/>
+                <Text style={styles.title}>First App</Text>
+              </View>            
 
-            <View style={styles.formContainer}>
+            <View style={stylesRegistro.formContainer}>
+            <Text style={styles.formTitle}>Registro</Text>
             <FormInputInlineWithIcon
                     image={require("../../../../assets/user.png")}
                     placeholder={"Nombre"}
                     keyboardType="default"
                     secureTextEntry={false}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('firstName', text)}}
                 ></FormInputInlineWithIcon>
 
                 <FormInputInlineWithIcon
@@ -24,7 +34,7 @@ function RegistroScreen  ()  {
                     placeholder={"Apellidos"}
                     keyboardType="default"
                     secureTextEntry={false}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('lastName', text)}}
                 ></FormInputInlineWithIcon>
 
                 <FormInputInlineWithIcon
@@ -32,7 +42,7 @@ function RegistroScreen  ()  {
                     placeholder={"Correo electrónico"}
                     keyboardType="email-address"
                     secureTextEntry={false}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('email', text)}}
                 ></FormInputInlineWithIcon>
 
                 <FormInputInlineWithIcon
@@ -40,7 +50,7 @@ function RegistroScreen  ()  {
                     placeholder={"Teléfono"}
                     keyboardType="numeric"
                     secureTextEntry={false}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('phone', text)}}
                 ></FormInputInlineWithIcon>
 
                 <FormInputInlineWithIcon
@@ -48,7 +58,7 @@ function RegistroScreen  ()  {
                     placeholder={"Contraseña"}
                     keyboardType="default"
                     secureTextEntry={true}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('password', text)}}
                 ></FormInputInlineWithIcon>
 
                 <FormInputInlineWithIcon
@@ -56,16 +66,39 @@ function RegistroScreen  ()  {
                     placeholder={"Repetir contraseña"}
                     keyboardType="default"
                     secureTextEntry={true}
-                    onPressFormInterface={() => {alert('')}}
+                    onPressFormInterface={(text) => {onChangeRegister('confirmPassword', text)}}
                 ></FormInputInlineWithIcon>               
 
                 <View style={{marginTop: 20}}>
-                    <RoundedButton text={'Registrar'} onPressFromInterface={() => {alert('Registro exitoso')}}/>
+                    <RoundedButton text={'Finalizar'} onPressFromInterface={() => {register(); ToastAndroid.show('Registrado', ToastAndroid.SHORT);}}/>
                     
                 </View>
             </View>
         </View>
     );
 }
+
+const stylesRegistro = StyleSheet.create({
+    image: {
+        width: 90,
+        height: 90,
+    },
+    imageContainer:{
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 50,
+    },
+    formContainer: {
+        width: '95%',
+        backgroundColor: 'white',
+        paddingHorizontal: 25,
+        paddingVertical: 15,
+        marginHorizontal: 'auto',
+        marginTop: 50,
+        borderRadius: 20,
+    
+      },
+
+})
 
 export default RegistroScreen;

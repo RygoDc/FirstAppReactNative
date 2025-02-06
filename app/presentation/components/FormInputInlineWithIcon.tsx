@@ -21,7 +21,7 @@ export const FormInputInlineWithIcon = (
                        placeholder={placeholder}
                        keyboardType={keyboardType}
                        secureTextEntry={secureTextEntry}
-                       onChangeText={(text) => onPressFormInterface(text)}
+                       onChangeText={(text) => onPressFormInterface(text)} //equiva el seter
             ></TextInput>
         </View>
     );

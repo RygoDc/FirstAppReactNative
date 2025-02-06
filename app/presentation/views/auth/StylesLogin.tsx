@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',   
     },
     imageContainer:{
+      alignItems: 'center',
       alignSelf: 'center',
       marginTop: 130,
     },
